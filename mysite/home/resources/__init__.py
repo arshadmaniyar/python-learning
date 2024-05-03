@@ -1,3 +1,4 @@
-from .mymodellistview import MyModelListView
+from .readProfile import User
 from .deleteProfile import deleteProfile
-from .LoginView import LoginView
+from .loginProfile import LoginView
+from .insertProfile import insertProfile
