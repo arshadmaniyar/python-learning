@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import *
-from home.resources import MyModelListView
+from home.resources import User
 from home.resources import deleteProfile
 from home.resources import LoginView
+from home.resources import insertProfile
 
 urlpatterns = [
     path ('',home),
@@ -29,9 +30,11 @@ urlpatterns = [
     path('insertuser', insertuser),
     path('viewuser', viewuser),
     path('deleteprofile/<int:id>', deleteprofile),
-    path('mymodel/', MyModelListView.as_view()),
+    path('user/', User.as_view() , name= "getAllUserDetails"),
+    path('user/<int:id>', User.as_view(), name= "getUserById"),
     path('delete/<int:id>', deleteProfile.as_view()),
     path('login/', LoginView.as_view()),
+    path('insert/', insertProfile.as_view()),
 
 
 ]

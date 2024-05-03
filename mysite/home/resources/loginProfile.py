@@ -13,11 +13,11 @@ class LoginView(View):
         try:
             data = json.loads(request.body)
             email = data.get('email')
-            password = data.get('Password')
+            password = data.get('password')
             if email and password:
                 try:
                     user = User.objects.get(email=email, Password=password)
-                    data = {"message": "Login successful", "user_id": user.id, "status_code": 200}
+                    data = {"user_id": user.id ,"is_valid" : True , "status_code": 200, "Name" : user.name}
                 except User.DoesNotExist:
                     data = {"error": "Invalid email or password", "status_code": 401}
             else:
